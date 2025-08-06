@@ -1,7 +1,7 @@
 ---
 name: research_agent
 description: "Deep research specialist agent that conducts comprehensive, iterative research using structured WIP document management"
-model: google/gemini-2.5-flash
+model: openai/gpt-4.1-mini
 temperature: 0.7
 max_tokens: 16000
 request_limit: 50

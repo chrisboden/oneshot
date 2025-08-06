@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokenizer Slide Layouts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- DEFAULT STYLES --- */
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #333; /* A lighter bg to see the slide containers */
+            color: #f3f3f3;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .slide-container {
+            background-color: #000e2bff; /* Navy BG */
+            border: 1px solid #444;
+            width: 1280px;
+            height: 720px;
+            margin: 2rem auto;
+            padding: 50px;
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Prevents content from spilling out */
+        }
+
+        .slide-container h1, .slide-container h2, .slide-container h3 {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        .slide-container .hub-logo {
+            position: absolute;
+            bottom: 40px;
+            right: 50px;
+            width: 80px;
+            opacity: 0.8;
+        }
+        
+        .slide-container .partner-logos {
+            position: absolute;
+            bottom: 40px;
+            left: 50px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .slide-container .partner-logos img {
+            height: 35px;
+            opacity: 0.8;
+        }
+        
+
+        /* --- LAYOUT SPECIFIC STYLES --- */
+        
+        /* 1. Title Slide */
+        #title-slide {
+            background-image: url('https://images.unsplash.com/photo-1598463166943-125bd6145df0?q=80&w=2560&auto=format&fit=crop'); /* Placeholder Cockatoo-like image */
+            background-size: cover;
+            background-position: center;
+        }
+        #title-slide .content {
+            background-color: rgba(0, 14, 43, 0.5); /* Semi-transparent overlay */
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        #title-slide h1 {
+            font-size: 110px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+        #title-slide h2 {
+            font-size: 32px;
+            font-weight: 400;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        /* 2. Section Header */
+        #section-header h3 {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+        #section-header h1 {
+            font-size: 120px;
+            font-weight: 700;
+            margin-top: 1rem;
+        }
+
+        /* 3. Quote Slide */
+        #quote-slide blockquote {
+            border: none;
+            padding: 0;
+            margin: 0;
+            width: 80%;
+        }
+        #quote-slide p {
+            font-size: 60px;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.4;
+            text-align: center;
+        }
+        #quote-slide footer {
+            font-size: 32px;
+            font-weight: 500;
+            text-align: right;
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        /* 4. Two-Column Comparison */
+        #two-column-comparison {
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+        #two-column-comparison .content-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            gap: 5%;
+        }
+        #two-column-comparison .column {
+            width: 45%;
+            padding: 20px;
+        }
+        #two-column-comparison .divider {
+            width: 2px;
+            height: 70%;
+            border-left: 2px dashed #444;
+        }
+        #two-column-comparison h2 {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        #two-column-comparison p {
+            font-size: 28px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        
+        /* 5. Diagram with Labels (Process Flow) */
+        #process-flow {
+            align-items: flex-start;
+        }
+        #process-flow h1 { font-size: 60px; margin-top: 30px; margin-bottom: 60px; width:100%; }
+        #process-flow .flow-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 20px;
+        }
+        #process-flow .flow-item {
+            padding: 20px 30px;
+            border: 2px solid #555;
+            background-color: #0d1f40;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 200px;
+        }
+         #process-flow .flow-item h3 { font-size: 24px; }
+        #process-flow .arrow {
+            font-size: 60px;
+            color: #f3f3f3;
+        }
+        
+        /* 8. Team/Contributor Showcase */
+        #team-showcase {
+             align-items: flex-start;
+        }
+        #team-showcase h1 { font-size: 60px; margin-top: 30px; margin-bottom: 60px; width:100%; }
+        #team-showcase .team-wrapper {
+            display: flex;
+            gap: 100px;
+        }
+        #team-showcase .member { text-align: center; }
+        #team-showcase .member img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid #f3f3f3;
+            margin-bottom: 1rem;
+        }
+        #team-showcase .member h3 { font-size: 32px; font-weight: 700; }
+        #team-showcase .member p { font-size: 24px; color: #aaa; }
+        #team-showcase .member a { color: #4dabf7; text-decoration: none; }
+        
+        /* General Content Slides */
+        .content-slide {
+            justify-content: flex-start;
+            align-items: flex-start;
+            text-align: left;
+        }
+        .content-slide h1 {
+             font-size: 72px;
+             font-weight: 700;
+             margin-bottom: 2rem;
+             text-align: left;
+        }
+        .content-slide ul, .content-slide ol {
+            font-size: 32px;
+            line-height: 1.8;
+            margin-left: 30px;
+            width: 90%;
+        }
+         .content-slide p {
+            font-size: 32px;
+            line-height: 1.8;
+            width: 90%;
+        }
+
+        /* 13. Image & Text Side-by-Side */
+        #image-text-side-by-side .content-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            width: 100%;
+        }
+        #image-text-side-by-side .text-content { width: 50%; }
+        #image-text-side-by-side .image-content { width: 50%; }
+        #image-text-side-by-side img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Layout 1: Title Slide -->
+    <div class="slide-container" id="title-slide">
+        <div class="content">
+            <h1>TOKENIZER</h1>
+            <h2>Surfing the AI wave on the Sunshine Coast</h2>
+        </div>
+        <div class="partner-logos">
+            <img src="https://i.imgur.com/rS22t3g.png" alt="Advance Queensland Logo"> <!-- Placeholder -->
+            <img src="https://i.imgur.com/0oPEPS5.png" alt="Queensland Government Logo"> <!-- Placeholder -->
+        </div>
+        <img src="https://i.imgur.com/gY9YAJ8.png" alt="Peregian Digital Hub Logo" class="hub-logo">
+    </div>
+
+    <!-- Layout 2: Section Header -->
+    <div class="slide-container" id="section-header">
+        <h3>CONCEPT</h3>
+        <h1>Context Engineering</h1>
+        <img src="https://i.imgur.com/gY9YAJ8.png" alt="Peregian Digital Hub Logo" class="hub-logo">
+    </div>
+    
+    <!-- Layout 3: Quote Slide -->
+    <div class="slide-container" id="quote-slide">
+        <blockquote>
+            <p>"the art of providing all the context for the task to be plausibly solvable by the LLM."</p>
+            <footer>- Tobi Lutke</footer>
+        </blockquote>
+        <img src="https://i.imgur.com/gY9YAJ8.png" alt="Peregian Digital Hub Logo" class="hub-logo">
+    </div>
+
+    <!-- Layout 4: Two-Column Comparison -->
+    <div class="slide-container" id="two-column-comparison">
+        <div class="content-wrapper">
+            <div class="column">
+                <h2>Prompt Engineering</h2>
+                <p>Prompt engineering deals with crafting clever instructions—a single interaction focused on phrasing.</p>
+            </div>
+            <div class="divider"></div>
+            <div class="column">
+                <h2>Context Engineering</h2>
+                <p>Context engineering is a systems discipline: you're building the full environment (memory, tools, retrieval) that supports real world LLM applications.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Layout 5: Process Flow Diagram -->
+    <div class="slide-container" id="process-flow">
+        <h1>From Knowledge Worker to Knowledge Work</h1>
+        <div class="flow-wrapper">
+            <div class="flow-item"><h3>Knowledge Worker<br/>(YOU)</h3></div>
+            <div class="arrow">&rarr;</div>
+            <div class="flow-item"><h3>AI Knowledge Workers<br/>(Agents with Tools)</h3></div>
+            <div class="arrow">&rarr;</div>
+            <div class="flow-item"><h3>Knowledge Work<br/>(Artefacts)</h3></div>
+        </div>
+    </div>
+
+    <!-- Layout 6: Image with Text Overlay (Simplified as Title + Image) -->
+    <div class="slide-container" id="image-with-overlay">
+         <h1>What is an IDE?</h1>
+         <p style="font-size: 36px; margin-top: 2rem;">Integrated Development Environment</p>
+         <img src="https://i.imgur.com/S83HrfN.png" alt="IDE screenshot placeholder" style="width: 80%; margin-top: 3rem; border-radius: 10px;">
+    </div>
+    
+    <!-- Layout 7: Bulleted List -->
+    <div class="slide-container content-slide" id="bulleted-list">
+        <h1>What Does Good Look Like?</h1>
+        <ul>
+            <li>I use AI everyday to help me</li>
+            <li>I understand context & have learnt good prompting techniques</li>
+            <li>I have custom instructions that personalise AI to my needs</li>
+            <li>I use files, search, etc to ground my conversations in real data</li>
+            <li>I create useful artefacts/tools for myself & my team</li>
+        </ul>
+    </div>
+    
+    <!-- Layout 8: Team/Contributor Showcase -->
+    <div class="slide-container" id="team-showcase">
+        <h1>Swim upstream to find the sense-makers</h1>
+        <div class="team-wrapper">
+            <div class="member">
+                <img src="https://i.imgur.com/pMe2w8h.png" alt="Tobi Lutke">
+                <h3>Tobi Lutke</h3>
+                <p>CEO Shopify</p>
+                <a href="#">Follow on X @tobi</a>
+            </div>
+            <div class="member">
+                <img src="https://i.imgur.com/rMGFtqg.png" alt="Dan Shipper">
+                <h3>Dan Shipper</h3>
+                <p>CEO Every</p>
+                <a href="#">Follow on X @danshipper</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Layout 9: Diagram with Labels (already covered by Process Flow) -->
+    <div class="slide-container content-slide">
+        <h1>Slide Layout 9: Diagram with Labels</h1>
+        <p>This layout is visually similar to Layout 5 (Process Flow Diagram) and can be adapted from that template.</p>
+    </div>
+
+
+    <!-- Layout 10: Definition Slide -->
+    <div class="slide-container content-slide" id="definition-slide">
+        <h1>Grounding</h1>
+        <p>In the context of AI, grounding means connecting the model's responses to reliable sources of information, such as provided documents, files, or real-time web search results. This prevents hallucination and ensures the output is factually accurate and relevant to the specific task.</p>
+    </div>
+
+    <!-- Layout 11: Resource Links -->
+    <div class="slide-container content-slide" id="resource-links">
+        <h1>Hands on with Agents & Tools</h1>
+        <ul>
+            <li>Get your Openrouter API Key: <a href="https://www.peregianhub.com.au/academy/apikey">https://www.peregianhub.com.au/...</a></li>
+            <li>Agent Demo: <a href="https://colab.research.google.com/drive/10xUvJRzi...">https://colab.research.google.com/...</a></li>
+            <li>Openrouter Models: <a href="https://openrouter.ai/models">https://openrouter.ai/models</a></li>
+            <li>N8n Tutorials: <a href="https://www.youtube.com/watch?v=Ev18PDiaAYI">https://www.youtube.com/watch?v=...</a></li>
+        </ul>
+    </div>
+
+    <!-- Layout 12: Key Takeaways/Summary -->
+    <div class="slide-container content-slide" id="key-takeaways">
+        <h1>Key Takeaways</h1>
+        <ul>
+            <li><strong>New idea → Start a new chat.</strong> Don't mix unrelated ideas in a single chat.</li>
+            <li><strong>Don't correct the AI with a reply.</strong> Instead go back, edit your prompt, then re-run.</li>
+            <li>Remember that prompts, files, images etc all use up the context window.</li>
+            <li><strong>Most important:</strong> the better the context you provide, the better the predictions (outputs).</li>
+        </ul>
+    </div>
+
+    <!-- Layout 13: Image & Text Side-by-Side -->
+    <div class="slide-container content-slide" id="image-text-side-by-side">
+        <div class="content-wrapper">
+            <div class="image-content">
+                 <img src="https://i.imgur.com/k2Vqg7U.png" alt="Workflow Platform Comparison Table">
+            </div>
+            <div class="text-content">
+                <h1>Workflow Platform Comparison</h1>
+                <p>Choosing the right automation platform depends on your technical skill, the complexity of your workflows, and your budget.
+                <ul>
+                    <li><strong>Zapier:</strong> Best for non-technical users and simple, linear workflows.</li>
+                    <li><strong>Make:</strong> Ideal for mid-technical users needing branching logic.</li>
+                    <li><strong>n8n:</strong> The top choice for developers and power users building bespoke, AI-rich flows.</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Layout 14: Full-Screen Screenshot -->
+    <div class="slide-container" id="full-screen-screenshot">
+        <h1 style="position: absolute; top: 30px; left: 50px; text-align: left; font-size: 48px;">Connecting Apps in ChatGPT</h1>
+        <img src="https://i.imgur.com/1O2tY1W.png" alt="ChatGPT Connectors UI" style="width: 90%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    </div>
+
+    <!-- Layout 15: Title and Two-Column Text -->
+    <div class="slide-container content-slide" id="title-and-two-columns">
+        <h1>Types of Triggers</h1>
+        <div style="display: flex; gap: 5%; width: 100%; margin-top: 2rem;">
+            <div style="width: 47.5%;">
+                <ul>
+                    <li>Triggered by me in chat</li>
+                    <li>Triggered by a user message</li>
+                    <li>Triggered by an event on my computer</li>
+                </ul>
+            </div>
+            <div style="width: 47.5%;">
+                <ul>
+                    <li>Triggered by an ad hoc event in the cloud</li>
+                    <li>Triggered by scheduled event (cron)</li>
+                    <li>Triggered by ambient monitoring</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
