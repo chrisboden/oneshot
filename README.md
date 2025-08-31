@@ -134,6 +134,13 @@ With Logfire integration:
 - Performance optimisation insights
 - Educational debugging experience
 
+### Smart Usage Tracking
+Built-in resource management prevents infinite loops and provides agents with self-awareness:
+- **Real-time usage footers**: Every tool response shows progress like `🟢 *Tool usage: 15/30 calls (50%) - 15 remaining*`
+- **Visual indicators**: Color-coded warnings (🟢🟡🟠🔴) help agents plan their resource usage
+- **Intelligent error recovery**: When agents hit usage limits, delegation tools provide clear feedback to continue with partial results
+- **Agent self-awareness**: The `usage_status` tool lets agents monitor and adapt their behavior based on remaining capacity
+
 ### Flexible use
 
 You can use the oneshot system in a few different modes depending on your preference.
@@ -217,7 +224,7 @@ Note: You do not have to use these - adapt or delete as you please.
 ### Starter Agents for Common Use Cases
 The oneshot repo includes several pre-built agents that demonstrate different patterns and capabilities. The `research_agent` shows how to create agents that can perform comprehensive research tasks using multiple tools and sub-agents. The `vision_agent` demonstrates image and PDF analysis workflows, while the `nrl_agent` showcases structured report generation with specific formatting requirements. The `web_agent` shows how to build agents that can browse the web and extract information from web pages. These starter agents cover the most common knowledge work scenarios you're likely to encounter.
 
-We provide these starter agents because they serve as both working examples and starting points for your own agent development. Each agent demonstrates different patterns for tool selection, prompt engineering, and workflow design. By studying these agents, you can quickly understand how to structure effective prompts, allocate appropriate tools, and design agents that produce useful outputs. The agents are designed to be easily customizable—you can modify their prompts, change their tool allocations, or use them as templates for creating new agents. For instance, you might use the `research_agent` as a base to create a specialized market research agent, or adapt the `nel_agent` to create an agent that generates consistent structured reports in your company's templates.
+We provide these starter agents because they serve as both working examples and starting points for your own agent development. Each agent demonstrates different patterns for tool selection, prompt engineering, and workflow design. By studying these agents, you can quickly understand how to structure effective prompts, allocate appropriate tools, and design agents that produce useful outputs. The agents are designed to be easily customizable—you can modify their prompts, change their tool allocations, or use them as templates for creating new agents. For instance, you might use the `research_agent` as a base to create a specialized market research agent, or adapt the `nrl_agent` to create an agent that generates consistent structured reports in your company's templates.
 
 Note: You do not have to use these - adapt or delete as you please.
 
