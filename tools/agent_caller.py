@@ -86,7 +86,7 @@ def agent_caller(
     try:
         # Get project root (where the 'agent' bash script is located)
         project_root = Path(__file__).parent.parent
-        agent_script = project_root / "oneshot"
+        agent_script = project_root / "app" / "oneshot"
         
         if not agent_script.exists():
             return json.dumps({
